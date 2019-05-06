@@ -46,7 +46,7 @@ def random_change():
 		for _ in evaluated:
 			seed = random.random()
 			# important ! sort of temperature
-			seed *= ITERATIONS/(i+1)
+			seed *= ITERATIONS/(i+ITERATIONS/100)
 			ret = -2 if seed<0.02 else -1. if seed < 0.2 else 0. if seed > 0.4 else 1. if seed < 0.38 else 2.
 			change.append(ret)
 		return np.asarray(change)
@@ -143,7 +143,7 @@ while True:
 			best_solution = solution
 			print(*map(int, best_solution))
 			
-			#print("score", score)
+			print("score", score)
 		#else:
 			#print("score", score)
 			#print("better")

@@ -29,5 +29,5 @@ Un algorithme d'approximation (algorithme NNLS de Lawson-Hanson) est utilisé pu
 
 #Moi (modifie)  
 Scores : 1364, 1050, 3734  
-Un algorithme d'approximation (algorithme NNLS de Lawson-Hanson) est utilisé puis affiné par recherche par voisinage aléatoire avec tabou.  
+Un algorithme d'approximation (algorithme NNLS de Lawson-Hanson) est utilisé puis affiné par recherche par voisinage aléatoire avec tabou et temperature.  
 

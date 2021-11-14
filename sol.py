@@ -102,7 +102,7 @@ while True:
 			best_score = score
 			best_solution = solution
 			print(*map(int, best_solution))
-			#print("score", score)
+			print("score", score)
 			#print("random_guess", random_guess)
 			# print("odds", odds)
 			# print("pieces", pieces)

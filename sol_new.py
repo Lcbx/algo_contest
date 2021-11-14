@@ -39,17 +39,17 @@ from lsqnonneg import lsqnonneg
 import random
 
 
-
-def random_change():
+def random_change(i):
 	# generates a random change (between -2 and +2)
-		change = []
-		for _ in evaluated:
-			seed = random.random()
-			# important ! sort of temperature
-			seed *= ITERATIONS/(i+ITERATIONS/100)
-			ret = -2 if seed<0.02 else -1. if seed < 0.2 else 0. if seed > 0.4 else 1. if seed < 0.38 else 2.
-			change.append(ret)
-		return np.asarray(change)
+	change = [None] * len(evaluated)
+	for index in range(len(evaluated)):
+		seed = random.random()
+		# important ! sort of temperature
+		seed *= ITERATIONS/(i+ITERATIONS/100)
+		ret = -2 if seed < 0.02 else -1. if seed < 0.2  else 1. if seed < 0.38 else 2. if seed < 0.4 else 0. 
+		change[index] = ret
+		#print(seed, int( 1 / seed ), ret)
+	return np.asarray(change)
 
 
 
@@ -119,13 +119,13 @@ while True:
 		
 		# if we are at local minima, we change the evaluated solution
 		if i > ITERATIONS:
-			#print("change")
+			#print("CHANGE")
 			i = 0
 			tabou.add( tuple(evaluated) )
 			evaluated = max_solution
 			evaluated_score = max_score
 		
-		change = random_change()
+		change = random_change(i)
 		result = test_solution(change)
 		if result != None:
 			solution, score = result
